@@ -8,6 +8,37 @@
     <packaging>war</packaging>
     <version>1.0</version>
 
+    <dependencies>
+        <dependency>
+            <groupId>org.apereo.cas</groupId>
+            <artifactId>cas-server-webapp${app.server}</artifactId>
+            <version>${cas.version}</version>
+            <type>war</type>
+            <scope>runtime</scope>
+        </dependency>
+
+        <!-- 根据不同的数据库使用不同驱动 -->
+        <!--<dependency>-->
+            <!--<groupId>mysql</groupId>-->
+            <!--<artifactId>mysql-connector-java</artifactId>-->
+            <!--<version>6.0.6</version>-->
+        <!--</dependency>-->
+
+        <!-- 若不想找驱动可以直接写下面的依赖即可，其中包括 HSQLDB、Oracle、MYSQL、PostgreSQL、MariaDB、Microsoft SQL Server -->
+        <dependency>
+            <groupId>org.apereo.cas</groupId>
+            <artifactId>cas-server-support-jdbc-drivers</artifactId>
+            <version>${cas.version}</version>
+        </dependency>
+
+        <!--jdbc认证需要添加的，这个是cas的依赖包-->
+        <dependency>
+            <groupId>org.apereo.cas</groupId>
+            <artifactId>cas-server-support-jdbc</artifactId>
+            <version>${cas.version}</version>
+        </dependency>
+    </dependencies>
+
     <build>
         <plugins>
             <plugin>
